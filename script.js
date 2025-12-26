@@ -545,19 +545,20 @@ function initLoading() {
     });
 }
 
-// ===== INICIALIZAÇÃO DA APLICAÇÃO =====
 function initApp() {
     // Inicializar componentes
     initTheme();
     initMenu();
-    initCounters();
-    initScrollAnimations();
+    initScrollAnimations(); // Deve vir antes de checkInitialAnimations
     initContactForm();
     initModals();
     initSmoothScroll();
     initNavbarScroll();
     initServiceButtons();
     initLoading();
+    
+    // Verificar animações na carga inicial
+    setTimeout(checkInitialAnimations, 100);
     
     // Atualizar ano do copyright
     const yearElement = document.querySelector('footer p:first-child');
@@ -608,3 +609,101 @@ window.AtonDesigner = {
     openPortfolioModal,
     closePortfolioModal
 };
+
+// ===== ANIMAÇÕES AO SCROLL REVISADAS =====
+function initScrollAnimations() {
+    // Configuração do Intersection Observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Adicionar classe 'visible' quando o elemento entra na viewport
+                entry.target.classList.add('visible');
+                
+                // Se o elemento tiver contador, animá-lo
+                if (entry.target.classList.contains('hero-stats')) {
+                    setTimeout(() => {
+                        animateStatistics();
+                    }, 300);
+                }
+                
+                // Se for um card de serviço, adicionar delay progressivo
+                if (entry.target.classList.contains('service-card')) {
+                    const index = Array.from(
+                        entry.target.parentElement.children
+                    ).indexOf(entry.target);
+                    entry.target.style.transitionDelay = `${index * 0.1}s`;
+                }
+            } else {
+                // Remover classe 'visible' quando sai da viewport (opcional)
+                // entry.target.classList.remove('visible');
+            }
+        });
+    }, observerOptions);
+    
+    // Observar todos os elementos com classe de animação
+    const animatedElements = document.querySelectorAll(
+        '.animate-on-scroll, .animate-card, .animate-stat, .animate-process, .animate-from-right'
+    );
+    
+    animatedElements.forEach((el) => observer.observe(el));
+    
+    // Iniciar alguns elementos como visíveis (hero section)
+    const heroElements = document.querySelectorAll('.hero-content > *');
+    heroElements.forEach((el, index) => {
+        el.classList.add('animate-on-scroll');
+        el.classList.add(`delay-${index}`);
+        setTimeout(() => {
+            el.classList.add('visible');
+        }, index * 100);
+    });
+}
+
+// Atualizar a função animateStatistics para ser mais suave
+function animateStatistics() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach((counter, index) => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const suffix = counter.textContent.includes('%') ? '%' : '';
+        const plusSign = counter.textContent.includes('+') ? '+' : '';
+        
+        let count = 0;
+        const duration = 2000; // 2 segundos
+        const steps = 60;
+        const increment = target / steps;
+        
+        const updateCounter = () => {
+            if (count < target) {
+                count += increment;
+                counter.textContent = Math.floor(count) + suffix + plusSign;
+                setTimeout(updateCounter, duration / steps);
+            } else {
+                counter.textContent = target + suffix + plusSign;
+            }
+        };
+        
+        // Delay progressivo para cada contador
+        setTimeout(updateCounter, index * 300);
+    });
+}
+
+// Adicionar uma função para verificar animações na carga inicial
+function checkInitialAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = (
+            rect.top <= window.innerHeight &&
+            rect.bottom >= 0
+        );
+        
+        if (isVisible) {
+            el.classList.add('visible');
+        }
+    });
+}
