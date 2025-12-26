@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athena Tecnologia | Seu Site Profissional em 72 Horas</title>
+    <title>Aton Designer | Design Gráfico & Identidade Visual</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <!-- Botão Toggle de Tema -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <span class="theme-slider"></span>
+    </button>
+
     <!-- Header e Navegação -->
     <header class="header">
         <nav class="navbar">
@@ -18,19 +25,19 @@
                 <div class="logo">
                     <span class="logo-icon">AT</span>
                     <div class="logo-text">
-                        <span class="logo-main">Athena</span>
-                        <span class="logo-sub">tecnologia</span>
+                        <span class="logo-main">Aton</span>
+                        <span class="logo-sub">designer</span>
                     </div>
                 </div>
-                <button class="menu-toggle" id="menuToggle">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#plans">Planos</a></li>
-                    <li><a href="#benefits">Vantagens</a></li>
-                    <li><a href="#process">Como Funciona</a></li>
-                    <li><a href="#contact" class="btn btn-outline">Fale Conosco</a></li>
+                    <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#services" class="nav-link"><i class="fas fa-palette"></i> Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link"><i class="fas fa-briefcase"></i> Portfólio</a></li>
+                    <li><a href="#process" class="nav-link"><i class="fas fa-cogs"></i> Processo</a></li>
+                    <li><a href="#contact" class="nav-link btn btn-outline"><i class="fas fa-comment-alt"></i> Contato</a></li>
                 </ul>
             </div>
         </nav>
@@ -41,255 +48,348 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-text">★ PROMOÇÃO ESPECIAL ★</span>
+                    <span class="badge-text"><i class="fas fa-crown"></i> DESIGN PREMIUM <i class="fas fa-crown"></i></span>
                 </div>
-                <h1 class="hero-title">SEU SITE PROFISSIONAL<br><span class="highlight">EM APENAS 72 HORAS</span></h1>
-                <p class="hero-subtitle">Mais de 50 empresas já transformaram seus resultados com um site profissional desenvolvido pela Athena Tecnologia</p>
+                <h1 class="hero-title">Design que <span class="highlight">transforma</span> ideias em <span class="highlight">experiências visuais</span></h1>
+                <p class="hero-subtitle">Criação de identidades visuais impactantes, design gráfico estratégico e soluções visuais que elevam marcas e engajam audiências.</p>
                 
-                <div class="hero-stats">
+                <div class="hero-stats" id="heroStats">
                     <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-text">Pronto para usar</div>
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-text">Projetos</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">72h</div>
-                        <div class="stat-text">Entrega garantida</div>
+                        <div class="stat-number" data-count="98">0%</div>
+                        <div class="stat-text">Satisfação</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-text">Clientes satisfeitos</div>
+                        <div class="stat-number" data-count="8">0+</div>
+                        <div class="stat-text">Anos de Experiência</div>
                     </div>
                 </div>
 
                 <div class="hero-cta">
-                    <a href="#plans" class="btn btn-primary btn-large">
-                        <i class="fas fa-rocket"></i> VER PLANOS A PARTIR DE R$29,90/mês
+                    <a href="#contact" class="btn btn-primary btn-large pulse-animation">
+                        <i class="fas fa-paper-plane"></i> SOLICITAR ORÇAMENTO
                     </a>
-                    <p class="cta-note">Primeira parcela somente na entrega</p>
+                    <a href="#portfolio" class="btn btn-secondary btn-large">
+                        <i class="fas fa-eye"></i> VER PORTFÓLIO
+                    </a>
                 </div>
             </div>
             
             <div class="hero-image">
-                <div class="floating-card">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <span class="card-badge">Site em 30 segundos</span>
-                            <h3>Pronto para usar</h3>
-                        </div>
-                        <div class="card-price">
-                            <div class="price-main">R$<span>29,90</span></div>
-                            <div class="price-period">por mês</div>
-                        </div>
-                        <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Design responsivo</li>
-                            <li><i class="fas fa-check"></i> SEO otimizado</li>
-                            <li><i class="fas fa-check"></i> Hospedagem grátis</li>
-                            <li><i class="fas fa-check"></i> Domínio grátis</li>
-                        </ul>
-                        <button class="btn btn-secondary">Começar agora</button>
+                <div class="design-showcase">
+                    <div class="design-item design-item-1">
+                        <i class="fas fa-pen-nib"></i>
+                        <span>Branding</span>
+                    </div>
+                    <div class="design-item design-item-2">
+                        <i class="fas fa-layer-group"></i>
+                        <span>UI/UX</span>
+                    </div>
+                    <div class="design-item design-item-3">
+                        <i class="fas fa-brush"></i>
+                        <span>Gráfico</span>
+                    </div>
+                    <div class="design-item design-item-4">
+                        <i class="fas fa-video"></i>
+                        <span>Motion</span>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Role para explorar</span>
+        </div>
     </section>
 
-    <!-- Seção Planos -->
-    <section class="plans-section" id="plans">
+    <!-- Seção Serviços -->
+    <section class="services-section" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Escolha o plano perfeito para o seu negócio</h2>
-                <p class="section-subtitle">Sites profissionais construídos do zero, otimizados para conversão e prontos no mesmo dia</p>
+                <h2 class="section-title">Serviços de <span class="highlight">Design</span></h2>
+                <p class="section-subtitle">Soluções completas de design para todas as necessidades da sua marca</p>
             </div>
 
-            <div class="plans-grid">
-                <!-- Plano 1: Landing Page -->
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3 class="plan-title">Landing Page</h3>
-                        <p class="plan-description">Alto poder de conversão</p>
+            <div class="services-grid">
+                <!-- Serviço 1: Identidade Visual -->
+                <div class="service-card" data-service="branding">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <div class="plan-price">
-                        <div class="price-amount">R$<span>597</span></div>
-                        <div class="price-note">Preço único</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <strong>Design profissional</strong></li>
-                        <li><i class="fas fa-check"></i> Página otimizada para conversão</li>
-                        <li><i class="fas fa-check"></i> Construída do zero</li>
-                        <li><i class="fas fa-check"></i> Pronta no mesmo dia</li>
-                        <li><i class="fas fa-check"></i> Carregamento ultrarrápido</li>
-                        <li><i class="fas fa-check"></i> Integração SEO básica</li>
+                    <h3>Identidade Visual</h3>
+                    <p>Criação de logos, paletas de cores, tipografia e manual da marca que representam a essência do seu negócio.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logo principal + variações</li>
+                        <li><i class="fas fa-check"></i> Paleta de cores corporativa</li>
+                        <li><i class="fas fa-check"></i> Sistema tipográfico</li>
+                        <li><i class="fas fa-check"></i> Manual da marca completo</li>
                     </ul>
-                    <div class="plan-footer">
-                        <a href="#contact" class="btn btn-outline">Escolher Plano</a>
+                    <div class="service-footer">
+                        <a href="#contact" class="btn btn-outline" data-service="branding">Solicitar</a>
+                        <span class="service-price">A partir de R$ 1.290</span>
                     </div>
-                    <div class="plan-badge popular">Mais popular</div>
                 </div>
 
-                <!-- Plano 2: Site Institucional -->
-                <div class="plan-card featured">
-                    <div class="plan-header">
-                        <h3 class="plan-title">Site Institucional</h3>
-                        <p class="plan-description">Até 5 páginas</p>
+                <!-- Serviço 2: Design Gráfico -->
+                <div class="service-card featured" data-service="graphic">
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
                     </div>
-                    <div class="plan-price">
-                        <div class="price-amount">R$<span>1.190</span></div>
-                        <div class="price-note">Preço único</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <strong>Tudo do plano Landing Page</strong></li>
-                        <li><i class="fas fa-check"></i> Até 5 páginas personalizadas</li>
-                        <li><i class="fas fa-check"></i> Design responsivo mobile-first</li>
-                        <li><i class="fas fa-check"></i> SEO avançado integrado</li>
-                        <li><i class="fas fa-check"></i> Formulário de contato</li>
-                        <li><i class="fas fa-check"></i> Integração com redes sociais</li>
-                        <li><i class="fas fa-check"></i> Painel administrativo</li>
+                    <h3>Design Gráfico</h3>
+                    <p>Materiais impressos e digitais que comunicam sua mensagem de forma clara, profissional e impactante.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cartões de visita</li>
+                        <li><i class="fas fa-check"></i> Flyers e banners</li>
+                        <li><i class="fas fa-check"></i> Apresentações corporativas</li>
+                        <li><i class="fas fa-check"></i> Catálogos e revistas</li>
+                        <li><i class="fas fa-check"></i> Material para social media</li>
                     </ul>
-                    <div class="plan-footer">
-                        <a href="#contact" class="btn btn-primary">Escolher Plano</a>
+                    <div class="service-footer">
+                        <a href="#contact" class="btn btn-primary" data-service="graphic">Solicitar</a>
+                        <span class="service-price">A partir de R$ 490</span>
                     </div>
-                    <div class="plan-badge">Recomendado</div>
                 </div>
 
-                <!-- Plano 3: Loja Online -->
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3 class="plan-title">Loja Online</h3>
-                        <p class="plan-description">E-commerce completo</p>
-                    </div>
-                    <div class="plan-price">
-                        <div class="price-amount">R$<span>1.490</span></div>
-                        <div class="price-note">Preço único</div>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> <strong>Tudo do plano Institucional</strong></li>
-                        <li><i class="fas fa-check"></i> Plataforma de e-commerce</li>
-                        <li><i class="fas fa-check"></i> Carrinho de compras</li>
-                        <li><i class="fas fa-check"></i> Integração com pagamentos</li>
-                        <li><i class="fas fa-check"></i> Gestão de produtos</li>
-                        <li><i class="fas fa-check"></i> Painel de pedidos</li>
-                        <li><i class="fas fa-check"></i> Certificado SSL</li>
-                    </ul>
-                    <div class="plan-footer">
-                        <a href="#contact" class="btn btn-outline">Escolher Plano</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="plans-includes">
-                <h3>Todos os planos incluem:</h3>
-                <div class="includes-grid">
-                    <div class="include-item">
-                        <i class="fas fa-globe"></i>
-                        <span>Domínio grátis (1º ano)</span>
-                    </div>
-                    <div class="include-item">
-                        <i class="fas fa-server"></i>
-                        <span>Hospedagem grátis (1º ano)</span>
-                    </div>
-                    <div class="include-item">
+                <!-- Serviço 3: UI/UX Design -->
+                <div class="service-card" data-service="uiux">
+                    <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
-                        <span>Design 100% responsivo</span>
                     </div>
-                    <div class="include-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Certificado SSL</span>
+                    <h3>UI/UX Design</h3>
+                    <p>Interfaces intuitivas e experiências de usuário otimizadas para websites e aplicativos mobile.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design de interface</li>
+                        <li><i class="fas fa-check"></i> Prototipagem interativa</li>
+                        <li><i class="fas fa-check"></i> Wireframes e user flow</li>
+                        <li><i class="fas fa-check"></i> Design system completo</li>
+                    </ul>
+                    <div class="service-footer">
+                        <a href="#contact" class="btn btn-outline" data-service="uiux">Solicitar</a>
+                        <span class="service-price">A partir de R$ 1.890</span>
                     </div>
-                    <div class="include-item">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Carregamento ultrarrápido</span>
+                </div>
+
+                <!-- Serviço 4: Motion Design -->
+                <div class="service-card" data-service="motion">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
                     </div>
-                    <div class="include-item">
-                        <i class="fas fa-headset"></i>
-                        <span>Suporte 30 dias</span>
+                    <h3>Motion Design</h3>
+                    <p>Animações, vídeos explicativos e gráficos em movimento para engajar e comunicar de forma dinâmica.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logo animação</li>
+                        <li><i class="fas fa-check"></i> Vídeos explicativos</li>
+                        <li><i class="fas fa-check"></i> Animações para redes sociais</li>
+                        <li><i class="fas fa-check"></i> Motion graphics</li>
+                    </ul>
+                    <div class="service-footer">
+                        <a href="#contact" class="btn btn-outline" data-service="motion">Solicitar</a>
+                        <span class="service-price">A partir de R$ 790</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Benefícios -->
-    <section class="benefits-section" id="benefits">
+    <!-- Seção Portfólio -->
+    <section class="portfolio-section" id="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Por que escolher a Athena Tecnologia?</h2>
-                <p class="section-subtitle">Confiança e transparência em cada projeto</p>
+                <h2 class="section-title">Portfólio <span class="highlight">Selecionado</span></h2>
+                <p class="section-subtitle">Alguns dos projetos que transformaram ideias em designs memoráveis</p>
             </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-bolt"></i>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Branding TechStart">
+                        <div class="portfolio-overlay">
+                            <h4>TechStart Branding</h4>
+                            <p>Identidade visual completa</p>
+                            <button class="btn btn-sm" data-view="project1">Ver Detalhes</button>
+                        </div>
                     </div>
-                    <h3>Rápido e Eficiente</h3>
-                    <p>Seu site pronto em até 72 horas, com qualidade premium e pronta para converter visitantes em clientes.</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-lock"></i>
+                <div class="portfolio-item" data-category="uiux">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="App Finanças">
+                        <div class="portfolio-overlay">
+                            <h4>FinPlan App</h4>
+                            <p>UI/UX Design mobile</p>
+                            <button class="btn btn-sm" data-view="project2">Ver Detalhes</button>
+                        </div>
                     </div>
-                    <h3>Pagamento Seguro</h3>
-                    <p>Metade do pagamento somente na entrega. Sem risco para você, total segurança em sua compra.</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="portfolio-item" data-category="graphic">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Material Gráfico">
+                        <div class="portfolio-overlay">
+                            <h4>EcoLiving Material</h4>
+                            <p>Design gráfico completo</p>
+                            <button class="btn btn-sm" data-view="project3">Ver Detalhes</button>
+                        </div>
                     </div>
-                    <h3>Otimizado para Resultados</h3>
-                    <p>Sites construídos com foco em conversão, SEO e experiência do usuário para maximizar seus resultados.</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-headset"></i>
+                <div class="portfolio-item" data-category="motion">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Motion Design">
+                        <div class="portfolio-overlay">
+                            <h4>Motion Graphics</h4>
+                            <p>Animações corporativas</p>
+                            <button class="btn btn-sm" data-view="project4">Ver Detalhes</button>
+                        </div>
                     </div>
-                    <h3>Suporte Dedicado</h3>
-                    <p>Equipe especializada para te acompanhar em cada etapa, desde o planejamento até a entrega.</p>
                 </div>
+            </div>
+
+            <div class="portfolio-cta">
+                <a href="#contact" class="btn btn-primary btn-large">
+                    <i class="fas fa-envelope"></i> SOLICITAR PORTFÓLIO COMPLETO
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Processo -->
+    <!-- Seção Processo de Trabalho -->
     <section class="process-section" id="process">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Como funciona em 4 passos simples</h2>
-                <p class="section-subtitle">Do pedido à entrega, tudo de forma rápida e descomplicada</p>
+                <h2 class="section-title">Processo de <span class="highlight">Trabalho</span></h2>
+                <p class="section-subtitle">Como transformamos suas ideias em designs incríveis, passo a passo</p>
             </div>
 
             <div class="process-timeline">
                 <div class="process-step">
-                    <div class="step-number">1</div>
+                    <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3>Escolha seu plano</h3>
-                        <p>Selecione o plano ideal para seu negócio e faça seu pedido online.</p>
+                        <h3>Briefing & Pesquisa</h3>
+                        <p>Compreendemos seu negócio, objetivos e público-alvo através de questionários e pesquisas de mercado.</p>
+                        <div class="step-tools">
+                            <span><i class="fas fa-comments"></i> Entrevistas</span>
+                            <span><i class="fas fa-chart-bar"></i> Análise</span>
+                            <span><i class="fas fa-bullseye"></i> Objetivos</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-step">
-                    <div class="step-number">2</div>
+                    <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3>Briefing e planejamento</h3>
-                        <p>Nossa equipe entra em contato para entender suas necessidades e objetivos.</p>
+                        <h3>Conceito & Esboço</h3>
+                        <p>Desenvolvimento de conceitos visuais, criação de moodboards e primeiros esboços para validação.</p>
+                        <div class="step-tools">
+                            <span><i class="fas fa-lightbulb"></i> Ideação</span>
+                            <span><i class="fas fa-pencil-alt"></i> Esboços</span>
+                            <span><i class="fas fa-palette"></i> Moodboards</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-step">
-                    <div class="step-number">3</div>
+                    <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3>Desenvolvimento</h3>
-                        <p>Criamos seu site do zero, com design exclusivo e foco em resultados.</p>
+                        <h3>Design & Desenvolvimento</h3>
+                        <p>Criação dos designs finais, aplicação em diferentes formatos e preparação para produção/implementação.</p>
+                        <div class="step-tools">
+                            <span><i class="fas fa-desktop"></i> Adobe CC</span>
+                            <span><i class="fas fa-magic"></i> Refinamento</span>
+                            <span><i class="fas fa-check-circle"></i> Aprovação</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-step">
-                    <div class="step-number">4</div>
+                    <div class="step-number">04</div>
                     <div class="step-content">
-                        <h3>Entrega e lançamento</h3>
-                        <p>Seu site pronto para uso, com suporte técnico incluso por 30 dias.</p>
+                        <h3>Entrega & Suporte</h3>
+                        <p>Entrega de arquivos finais em todos os formatos necessários e suporte pós-entrega para ajustes finais.</p>
+                        <div class="step-tools">
+                            <span><i class="fas fa-file-export"></i> Exportação</span>
+                            <span><i class="fas fa-hands-helping"></i> Suporte</span>
+                            <span><i class="fas fa-graduation-cap"></i> Treinamento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Depoimentos -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que dizem <span class="highlight">nossos clientes</span></h2>
+                <p class="section-subtitle">Confiança e qualidade comprovadas por quem já transformou sua marca</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"O Aton transformou completamente a identidade visual da nossa startup. O resultado superou todas as expectativas!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carlos Silva">
+                        <div>
+                            <h4>Carlos Silva</h4>
+                            <span>CEO - TechStart Solutions</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Profissionalismo, criatividade e atenção aos detalhes. O design do nosso aplicativo ficou incrível!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Ana Paula">
+                        <div>
+                            <h4>Ana Paula</h4>
+                            <span>Diretora - FinPlan App</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Material gráfico de alta qualidade que realmente representa nossa marca sustentável. Recomendo!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Roberto Costa">
+                        <div>
+                            <h4>Roberto Costa</h4>
+                            <span>Fundador - EcoLiving</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -300,31 +400,57 @@
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Pronto para transformar seu negócio?</h2>
-                <p class="cta-subtitle">Solicite seu orçamento grátis e sem compromisso</p>
+                <h2 class="cta-title">Pronto para elevar o design da sua marca?</h2>
+                <p class="cta-subtitle">Solicite um orçamento personalizado para seu projeto de design</p>
                 
                 <div class="cta-buttons">
-                    <a href="https://wa.me/5511999999999" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> FALE CONOSCO NO WHATSAPP
+                    <a href="https://wa.me/5511999999999" class="btn btn-whatsapp btn-large pulse-animation">
+                        <i class="fab fa-whatsapp"></i> FALE COMIGO NO WHATSAPP
                     </a>
-                    <a href="#plans" class="btn btn-secondary">
-                        VER TODOS OS PLANOS
+                    <a href="mailto:contato@atondesigner.com" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i> ENVIAR E-MAIL
                     </a>
                 </div>
 
-                <div class="cta-features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Orçamento grátis e sem compromisso</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Metade do pagamento somente na entrega</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Grátis: hospedagem e domínio (1º ano)</span>
-                    </div>
+                <!-- Formulário de Contato -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <h3><i class="fas fa-paper-plane"></i> Ou preencha o formulário:</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Seu nome completo" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="Seu telefone/WhatsApp" required>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="form-group">
+                                <select id="service" required>
+                                    <option value="" disabled selected>Serviço de interesse</option>
+                                    <option value="branding">Identidade Visual</option>
+                                    <option value="graphic">Design Gráfico</option>
+                                    <option value="uiux">UI/UX Design</option>
+                                    <option value="motion">Motion Design</option>
+                                    <option value="multiple">Vários Serviços</option>
+                                </select>
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder="Conte-me sobre seu projeto, objetivos, prazos e orçamento..." required></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> ENVIAR SOLICITAÇÃO DE ORÇAMENTO
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -338,42 +464,86 @@
                     <div class="logo">
                         <span class="logo-icon">AT</span>
                         <div class="logo-text">
-                            <span class="logo-main">Athena</span>
-                            <span class="logo-sub">tecnologia</span>
+                            <span class="logo-main">Aton</span>
+                            <span class="logo-sub">designer</span>
                         </div>
                     </div>
-                    <p class="footer-description">Transformando ideias em sites de alta conversão desde 2020.</p>
+                    <p class="footer-description">Design estratégico que transforma ideias em experiências visuais impactantes.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-links">
-                    <h3>Links Rápidos</h3>
+                    <h3>Serviços</h3>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#plans">Planos</a></li>
-                        <li><a href="#benefits">Vantagens</a></li>
-                        <li><a href="#process">Como Funciona</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Identidade Visual</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Design Gráfico</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Motion Design</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-contact">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-envelope"></i> contato@athenatecnologia.com</p>
+                    <p><i class="fas fa-envelope"></i> contato@atondesigner.com</p>
                     <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
                     <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 Athena Tecnologia. Todos os direitos reservados.</p>
-                <p class="footer-note">Patrocinado</p>
+                <p>&copy; 2023 Aton Designer. Todos os direitos reservados.</p>
+                <p class="footer-note">
+                    <i class="fas fa-heart"></i> Design e desenvolvimento por <strong>Aton Designer</strong>
+                    <span class="theme-indicator" id="themeIndicator">Tema: Escuro</span>
+                </p>
             </div>
         </div>
     </footer>
+
+    <!-- Modal de Detalhes do Portfólio -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"><i class="fas fa-image"></i> Detalhes do Projeto</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage"></div>
+                <div class="modal-info">
+                    <h4 id="modalClient"></h4>
+                    <p id="modalDescription"></p>
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modalPrev"><i class="fas fa-chevron-left"></i> Anterior</button>
+                <button class="btn btn-primary" id="modalNext">Próximo <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Solicitação Enviada!</h3>
+                <button class="modal-close" id="confirmClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Sua solicitação de orçamento foi enviada com sucesso! Em breve entrarei em contato para discutirmos seu projeto de design.</p>
+                <div class="modal-service-selected" id="modalService"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="confirmOk">OK, entendi!</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
