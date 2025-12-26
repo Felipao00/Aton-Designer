@@ -456,47 +456,6 @@ section {
     50% { transform: translateY(-20px); }
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-}
-
-.wheel {
-    width: 4px;
-    height: 10px;
-    background: var(--primary);
-    border-radius: 2px;
-    animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(20px); opacity: 0; }
-}
-
-.scroll-indicator span {
-    font-size: 12px;
-    color: var(--text-secondary);
-    letter-spacing: 1px;
-}
-
 /* ===== BOTÕES ===== */
 .btn {
     display: inline-flex;
@@ -946,7 +905,7 @@ section {
     font-size: 12px;
 }
 
-/* ===== FORMULÁRIO ===== */
+/* ===== SEÇÃO CONTATO COM CARDS ===== */
 .cta-section {
     background: var(--gradient-dark);
     color: white;
@@ -978,102 +937,119 @@ section {
 
 .cta-subtitle {
     font-size: 1.1rem;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
     opacity: 0.9;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: var(--spacing);
-    justify-content: center;
-    margin-bottom: var(--spacing-2xl);
-    flex-wrap: wrap;
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.contact-form-container {
+.contact-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-2xl);
-    max-width: 800px;
-    margin: 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.contact-form h3 {
-    margin-bottom: var(--spacing-xl);
-    color: white;
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.contact-card.whatsapp-card:hover {
+    border-color: #25D366;
+}
+
+.contact-card.service-card:hover {
+    border-color: var(--accent);
+}
+
+.contact-card.email-card:hover {
+    border-color: var(--secondary);
+}
+
+.contact-card-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-full);
     display: flex;
     align-items: center;
-    gap: 8px;
     justify-content: center;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing);
     margin-bottom: var(--spacing);
-}
-
-.form-group {
-    position: relative;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 14px 16px 14px 44px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: white;
+    font-size: 32px;
     transition: var(--transition);
 }
 
-.form-group textarea {
-    padding-left: 44px;
-    resize: vertical;
-    min-height: 120px;
+.contact-card:hover .contact-card-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
-.form-group select {
-    appearance: none;
-    cursor: pointer;
+.whatsapp-card .contact-card-icon {
+    background: rgba(37, 211, 102, 0.2);
+    color: #25D366;
 }
 
-.form-group i {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16px;
+.service-card .contact-card-icon {
+    background: rgba(0, 212, 170, 0.2);
+    color: var(--accent);
 }
 
-.form-group textarea + i {
-    top: 20px;
-    transform: none;
+.email-card .contact-card-icon {
+    background: rgba(255, 107, 157, 0.2);
+    color: var(--secondary);
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 0 3px rgba(138, 111, 255, 0.1);
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: white;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.contact-card > p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.contact-card-info {
+    width: 100%;
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-card-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.contact-card-info i {
+    font-size: 12px;
+}
+
+.contact-card .btn {
+    width: 100%;
+    max-width: 200px;
 }
 
 /* ===== FOOTER ===== */
@@ -1192,14 +1168,6 @@ section {
     color: var(--accent);
 }
 
-.theme-indicator {
-    padding: 4px 12px;
-    background: var(--bg-tertiary);
-    border-radius: var(--border-radius-sm);
-    font-size: 12px;
-    margin-left: 8px;
-}
-
 /* ===== MODAIS ===== */
 .modal {
     position: fixed;
@@ -1281,6 +1249,18 @@ section {
     gap: var(--spacing);
 }
 
+/* ===== ANIMAÇÕES DE SCROLL ===== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 992px) {
     .hero .container {
@@ -1310,8 +1290,9 @@ section {
         transform: translateY(-10px);
     }
     
-    .form-row {
+    .contact-cards {
         grid-template-columns: 1fr;
+        max-width: 400px;
     }
 }
 
@@ -1365,16 +1346,6 @@ section {
     .step-tools {
         justify-content: center;
     }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-    }
 }
 
 @media (max-width: 576px) {
@@ -1405,8 +1376,12 @@ section {
         font-size: 15px;
     }
     
-    .contact-form-container {
-        padding: var(--spacing);
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .contact-card {
+        padding: var(--spacing-xl);
     }
 }
 
@@ -1457,4 +1432,123 @@ section {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* ===== ANIMAÇÕES DE SCROLL APRIMORADAS ===== */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animações específicas para diferentes elementos */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fade-in-rotate {
+    opacity: 0;
+    transform: translateY(30px) rotate(5deg);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-rotate.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+}
+
+/* Stagger effect - delay entre elementos */
+.stagger-delay-1 { transition-delay: 0.1s; }
+.stagger-delay-2 { transition-delay: 0.2s; }
+.stagger-delay-3 { transition-delay: 0.3s; }
+.stagger-delay-4 { transition-delay: 0.4s; }
+.stagger-delay-5 { transition-delay: 0.5s; }
+
+/* Efeito de borda animada para cards */
+.animated-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.animated-border.visible::before {
+    left: 0;
+}
+
+/* Efeito de texto revelado */
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    transform: translateX(-100%);
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.reveal-text.visible::after {
+    transform: translateX(100%);
+}
+
+/* Counter animation para stats */
+.counter-animate {
+    display: inline-block;
 }
