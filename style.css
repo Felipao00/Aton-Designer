@@ -18,6 +18,7 @@
     --gradient-accent: linear-gradient(135deg, var(--accent-color), #ff6b9d);
     --whatsapp-color: #25D366;
     --email-color: #EA4335;
+    --brasil-color: #009c3b;
 }
 
 html {
@@ -789,7 +790,7 @@ body::before {
 
 /* Contact */
 .contact {
-    padding: 100px 5%;
+    padding: 80px 5% 60px;
     position: relative;
 }
 
@@ -802,7 +803,7 @@ body::before {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .platform-card {
@@ -1038,7 +1039,7 @@ body::before {
 
 /* Footer */
 .footer {
-    padding: 60px 5%;
+    padding: 40px 5%;
     background: rgba(0, 0, 0, 0.5);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -1250,5 +1251,161 @@ body::before {
     
     .contact-platforms, .contact-info {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para o card de Atendimento Brasil */
+.platform-icon.brasil {
+    background: var(--brasil-color);
+    box-shadow: 0 10px 20px rgba(0, 156, 59, 0.2);
+}
+
+.brasil-tag {
+    background: linear-gradient(135deg, #009C3B, #FFDF00);
+    color: #002776;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+/* Ocultar completamente hero-visual no mobile */
+@media (max-width: 992px) {
+    .hero-visual {
+        display: none;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* Garantir que o container do hero se ajuste */
+@media (max-width: 992px) {
+    .hero-container {
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 120px 5% 60px;
+        min-height: auto;
+    }
+}
+
+/* Ajustes para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .hero-visual {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+/* Ajustar o layout quando o visual é ocultado */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* Ajustar logo no header mobile */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    .header {
+        padding: 15px 5%;
+    }
+    
+    .navbar {
+        padding: 5px 0;
+    }
+}
+
+/* Ajustar logo no footer mobile */
+@media (max-width: 768px) {
+    .footer-content .logo {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+}
+
+/* Centralizar botões do hero no mobile */
+@media (max-width: 992px) {
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-secondary {
+        min-width: 200px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* Ajustes específicos para mobile pequeno */
+@media (max-width: 576px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        margin: 0;
+    }
+    
+    .btn-primary {
+        margin-bottom: 10px;
+    }
+}
+
+/* Garantir alinhamento dos ícones dentro dos botões */
+.btn-primary, .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .btn-primary i, .btn-secondary i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animação sutil para os botões no mobile */
+@media (max-width: 768px) {
+    .hero-buttons {
+        animation: fadeInUp 0.8s ease 0.5s both;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

@@ -215,3 +215,35 @@ if (copyright) {
     const currentYear = new Date().getFullYear();
     copyright.textContent = copyright.textContent.replace('2023', currentYear);
 }
+
+// Scroll Reveal melhorado
+const scrollRevealOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            
+            // Adicionar delay progressivo para elementos filhos
+            const childElements = entry.target.querySelectorAll('.reveal-child');
+            childElements.forEach((child, index) => {
+                child.style.transitionDelay = `${index * 0.1}s`;
+                child.classList.add('animated');
+            });
+        }
+    });
+}, scrollRevealOptions);
+
+// Observar todas as seções
+document.querySelectorAll('section').forEach(section => {
+    scrollRevealObserver.observe(section);
+});
+
+// Observar elementos individuais importantes
+const revealElements = document.querySelectorAll('.service-card, .plan-card, .stat, .team-member, .platform-card, .info-card, .section-title, .section-subtitle, .about-content p, .about-stats, .about-quote');
+revealElements.forEach(element => {
+    scrollRevealObserver.observe(element);
+});
